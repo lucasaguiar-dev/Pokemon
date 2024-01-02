@@ -1,0 +1,45 @@
+swagger: '2.0'
+info:
+  title: 'Pokémon API'
+  description: 'API for retrieving Pokémon information.'
+  version: '1.0.0'
+host: 'localhost:5000'
+basePath: '/'
+schemes:
+  - 'http'
+
+
+parameters:
+  - name: pokemon_name
+    in: path
+    type: string
+    required: true
+    description: The name of the Pokémon.
+    example: "pikachu"
+
+
+responses:
+  200:
+    description: Successful response with Pokémon information.
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Pikachu
+        height:
+          type: number
+          example: 0.4
+        weight:
+          type: number
+          example: 6.0
+        # Adicione outros campos conforme necessário
+  404:
+    description: Pokémon not found.
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Pokemon not found
+      
